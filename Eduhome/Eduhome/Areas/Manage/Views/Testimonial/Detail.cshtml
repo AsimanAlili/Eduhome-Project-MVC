@@ -1,0 +1,22 @@
+﻿@model Testimonial
+@{
+    ViewData["Title"] = "Detail";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+}
+<div class="container-fluid">
+    <h2 style="color:lawngreen;font:bold">Detail</h2>
+    <div class="card-group">
+        <div class="card">
+            <img src="~/uploads/testimonials/@Model.Photo" style="max-width:150px" class="card-img-top" alt="slider">
+            <div class="card-body">
+                <h5 class="card-title">Title: @Model.FullName</h5>
+                <p class="card-text">Desc: @Model.Desc</p>
+                <p class="card-text">Occupation: @Model.Occupation</p>
+                <p class="card-text">Place: @Model.Place</p>
+            </div>
+        </div>
+    </div>
+    <div>
+        <a asp-action="index" asp-controller="testimonial" class="btn btn-outline-success mt-md-2">Back</a>
+    </div>
+</div>

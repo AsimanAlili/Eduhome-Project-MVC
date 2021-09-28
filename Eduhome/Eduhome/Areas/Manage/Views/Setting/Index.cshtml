@@ -1,0 +1,35 @@
+﻿@model SettingViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Title</th>
+                <th scope="col">ServicePhone</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Address</th>
+                <th scope="col">Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>@Model.Setting.Title</td>
+                <td>@Model.Setting.ServicePhone</td>
+                <td>@Model.Setting.Phone</td>
+                <td>@Model.Setting.Address</td>
+                <td>@Model.Setting.Email</td>
+                <td>
+                    <a asp-action="edit" asp-route-id="@Model.Setting.Id" class="btn btn-info">Edit</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+

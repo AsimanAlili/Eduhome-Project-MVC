@@ -1,0 +1,61 @@
+﻿@model Slider
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+}
+<div class="container-fluid">
+    <h2 style="color:dodgerblue;font:bold">Edit</h2>
+    <form method="post" enctype="multipart/form-data">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label asp-for="@Model.Title"></label>
+                <input class="form-control" asp-for="@Model.Title">
+                <span asp-validation-for="@Model.Title" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group col-md-6">
+                <label asp-for="@Model.RedirectUrl"></label>
+                <input class="form-control" asp-for="@Model.RedirectUrl">
+                <span asp-validation-for="@Model.RedirectUrl" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Text"></label>
+            <textarea class="form-control" asp-for="@Model.Text"></textarea>
+            <span asp-validation-for="@Model.Text" rows="3" class="text-danger"></span>
+
+        </div>
+        <div class="form-row">
+
+            <div class="form-group col-md-6">
+                <label asp-for="@Model.Order"></label>
+                <input class="form-control" asp-for="@Model.Order">
+                <span asp-validation-for="@Model.Order" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+
+                <label asp-for="@Model.File"></label>
+                <input class="form-control" asp-for="@Model.File">
+                <span asp-validation-for="@Model.File" class="text-danger"></span>
+                <div style="margin-top:8px" class="photo-box">
+                    @if (Model.Photo != null)
+                    {
+                        <img style="max-width:150px" src="~/uploads/sliders/@Model.Photo" alt="Alternate Text" />
+                        <input asp-for="@Model.Photo" hidden />
+                    }
+                </div>
+
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Edit</button>
+    </form>
+</div>
+@section Scripts{
+
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+}
+

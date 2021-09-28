@@ -1,0 +1,22 @@
+﻿@model Slider
+@{
+    ViewData["Title"] = "Detail";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+}
+<div class="container-fluid">
+    <h2 style="color:lawngreen;font:bold">Detail</h2>
+    <div class="card-group">
+        <div class="card">
+            <img src="~/uploads/sliders/@Model.Photo" class="card-img-top" alt="slider">
+            <div class="card-body">
+                <h5 class="card-title">Title: @Model.Title</h5>
+                <p class="card-text">Desc: @Model.Text</p>
+                <p class="card-text">Url: @Model.RedirectUrl</p>
+                <p class="card-text">Order: @Model.Order</p>
+            </div>
+        </div>
+    </div>
+    <div>
+        <a asp-action="index" asp-controller="slider" class="btn btn-outline-success mt-md-2">Back</a>
+    </div>
+</div>

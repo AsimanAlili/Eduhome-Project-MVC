@@ -1,0 +1,23 @@
+﻿@model Notice
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4">
+            <h2 style="color:green;font:bold">Detail</h2>
+            <div class="card-group mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-title">Create At: @Model.CreatedAt.ToString("dd MMMM yyyy HH:mm")</p>
+                        <p class="card-title">Desc: @Model.Desc</p>
+                    </div>
+                </div>
+            </div>
+            <a asp-action="index" asp-controller="notice" class="btn btn-outline-success mt-md-2">Back</a>
+        </div>
+    </div>
+</div>
+

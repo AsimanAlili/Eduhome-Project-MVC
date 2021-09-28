@@ -1,0 +1,10 @@
+﻿@model List<Teacher>
+    <ul class="list-group">
+
+        @foreach (Teacher teacher in Model)
+        {
+            <li class="list-group-item justify-content-start "style=" display: flex;">
+                <a href="/Teacher/Detail/@teacher.Id">@teacher.FullName</a>
+            </li>
+        }
+    </ul>

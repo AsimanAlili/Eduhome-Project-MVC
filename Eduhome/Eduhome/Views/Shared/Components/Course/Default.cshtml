@@ -1,0 +1,22 @@
+﻿@model List<Course>
+@foreach (var course in Model)
+{
+    <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="single-course mb-70">
+            <div class="course-img">
+                <a asp-action="detail" asp-controller="course" asp-route-id="@course.Id"  asp-route-categoryId="@course.Id">
+                    <img src="~/uploads/courses/@course.Photo" alt="course">
+                    <div class="course-hover">
+                        <i class="fa fa-link"></i>
+                    </div>
+                </a>
+            </div>
+            <div class="course-content">
+                <h3><a href="course-details.html">@course.Name</a></h3>
+                <h2>@course.Category.Name</h2>
+                <p>@Html.Raw((string.IsNullOrWhiteSpace(course.Desc)?"": (course.Desc.Length > 150 ? course.Desc.Substring(0, 150)+"..." : course.Desc)))</p>
+                <a class="default-btn" asp-action="detail" asp-controller="course" asp-route-id="@course.Id"  asp-route-categoryId="@course.Id">read more</a>
+            </div>
+        </div>
+    </div>
+}

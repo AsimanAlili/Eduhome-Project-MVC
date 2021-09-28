@@ -1,0 +1,48 @@
+﻿@model Event
+@{
+    ViewData["Title"] = "Detail";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+    List<Category> categories = ViewBag.Categories;
+    List<Tag> tags = ViewBag.Tags;
+    List<Teacher> teachers = ViewBag.Teachers;
+
+}
+
+<div class="container-fluid">
+    <h2 style="color:red;font:bold">Info</h2>
+    <div class="card-group">
+        <div class="card">
+            <img src="~/uploads/events/@Model.Photo" class="card-img-top" style="max-width:250px;" alt="course image">
+            <div class="card-body">
+                <h5 class="card-title">Title: @Model.Title</h5>
+                <p class="card-text">Venue: @Model.Venue</p>
+                <p class="card-text">Event Date: @Model.Date.ToString("dd MMMM")</p>
+                <p class="card-text">Start Date: @Model.StartTime.ToString("hh:mm tt")</p>
+                <p class="card-text">End Date: @Model.EndTime.ToString("hh:mm tt")</p>
+                <p class="card-text">Category: @Model.Category.Name</p>
+                <p class="card-text">Desc: @Html.Raw(Model.Desc)</p>
+                <div class="card-text bg-light" style="border-radius:5px">
+                    Tags:
+                    @foreach (var item in tags)
+                    {
+                        if (tags[tags.Count - 1] != item)
+                        {
+                            <p class="d-inline">@item.Name,</p>
+                        }
+                        else
+                        {
+                            <p class="d-inline">@item.Name</p>
+                        }
+
+                    }
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div>
+        <a asp-action="index" asp-controller="course" class="btn btn-outline-success mt-md-2">Back</a>
+    </div>
+</div>
+
+

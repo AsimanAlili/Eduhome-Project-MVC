@@ -1,0 +1,55 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Data\Migrations\20210403133226_SettingTableCreated.cs" />
+    <Compile Remove="Data\Migrations\20210403133226_SettingTableCreated.Designer.cs" />
+    <Compile Remove="Data\Migrations\20210403133427_SettingsTableCreated.cs" />
+    <Compile Remove="Data\Migrations\20210403133427_SettingsTableCreated.Designer.cs" />
+    <Compile Remove="Data\Migrations\20210404140209_TagsTableCreated.cs" />
+    <Compile Remove="Data\Migrations\20210404140209_TagsTableCreated.Designer.cs" />
+    <Compile Remove="Data\Migrations\20210404174744_CoursesAndCourseTagsTableCreated.cs" />
+    <Compile Remove="Data\Migrations\20210404174744_CoursesAndCourseTagsTableCreated.Designer.cs" />
+    <Compile Remove="Data\Migrations\20210405052333_PhotoColumnChangedIntoCourseAndintoSlider.cs" />
+    <Compile Remove="Data\Migrations\20210405052333_PhotoColumnChangedIntoCourseAndintoSlider.Designer.cs" />
+    <Compile Remove="Data\Migrations\20210406135218_CourseReviewsTableCreated.cs" />
+    <Compile Remove="Data\Migrations\20210406135218_CourseReviewsTableCreated.Designer.cs" />
+    <Compile Remove="Data\Migrations\20210406174704_SkillsTableCreated.cs" />
+    <Compile Remove="Data\Migrations\20210406174704_SkillsTableCreated.Designer.cs" />
+    <Compile Remove="Data\Migrations\20210408183904_NoticesTableCreated.cs" />
+    <Compile Remove="Data\Migrations\20210408183904_NoticesTableCreated.Designer.cs" />
+    <Compile Remove="Data\Migrations\20210409164432_SubscribeTablesCreated.cs" />
+    <Compile Remove="Data\Migrations\20210409164432_SubscribeTablesCreated.Designer.cs" />
+    <Compile Remove="Data\Migrations\20210410160636_SubscribeTableCreated.cs" />
+    <Compile Remove="Data\Migrations\20210410160636_SubscribeTableCreated.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.13" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.13" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.13">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.13" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.13">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\uploads\courses\" />
+    <Folder Include="wwwroot\uploads\events\" />
+    <Folder Include="wwwroot\uploads\teachers\" />
+    <Folder Include="wwwroot\uploads\testimonials\" />
+    <Folder Include="wwwroot\uploads\setting\" />
+    <Folder Include="wwwroot\uploads\sliders\" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,51 @@
+﻿@model Course
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+    List<Category> categories = ViewBag.Categories;
+    List<Tag> tags = ViewBag.Tags;
+}
+
+<div class="container-fluid">
+    <h2 style="color:green;font:bold">Info</h2>
+    <div class="card-group">
+        <div class="card">
+            <img src="~/uploads/courses/@Model.Photo" class="card-img-top" style="max-width:250px;" alt="course image">
+            <div class="card-body">
+                <h5 class="card-title">Title: @Model.Name</h5>
+                <p class="card-text">Slug: @Model.Slug</p>
+                <p class="card-text">Desc: @Model.Desc</p>
+                <p class="card-text">About Desc: @Model.AboutDesc</p>
+                <p class="card-text">Apply Desc: @Model.ApplyDesc</p>
+                <p class="card-text">Certification Desc: @Model.CertificationDesc</p>
+                <p class="card-text">About Desc: @Model.AboutDesc</p>
+                <p class="card-text">Start: @Model.Start</p>
+                <p class="card-text">Duration: @Model.Duration</p>
+                <p class="card-text">Hours: @Model.Hours</p>
+                <p class="card-text">Skill Level: @Model.SkillLevel</p>
+                <p class="card-text">Language: @Model.Language</p>
+                <p class="card-text">Student: @Model.Student</p>
+                <p class="card-text">Price: @Model.Price</p>
+                <p class="card-text">Category: @Model.Category.Name</p>
+                <div class="card-text bg-light" style="border-radius:5px">
+                    Tags:
+                    @foreach (var item in tags)
+                    {
+                        if (tags[tags.Count - 1] != item)
+                        {
+                            <p class="d-inline">@item.Name,</p>
+                        }
+                        else
+                        {
+                            <p class="d-inline">@item.Name</p>
+                        }
+
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <a asp-action="index" asp-controller="course" class="btn btn-outline-success mt-md-2">Back</a>
+    </div>
+</div>

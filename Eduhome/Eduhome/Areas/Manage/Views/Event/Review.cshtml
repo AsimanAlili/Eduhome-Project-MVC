@@ -1,0 +1,28 @@
+﻿@model List<EventReview>
+@{
+    ViewData["Title"] = "Review";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <h2 style="color:dodgerblue;font:bold">Reviews</h2>
+    <div class="row">
+        @foreach (var review in Model)
+        {
+            <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">@review.FullName - @review.Email</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">@review.Subject</h6>
+                        <p class="card-text">@review.Message</p>
+                        <a asp-action="index" class="btn btn-primary mb-2">Back</a>
+                        <form asp-action="DeleteReview" method="post">
+                            <input type="hidden" name="id" value="@review.Id" />
+                            <button class="btn btn-danger" type="submit">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

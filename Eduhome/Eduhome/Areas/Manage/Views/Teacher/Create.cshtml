@@ -1,0 +1,150 @@
+﻿@model Teacher
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+
+}
+
+<div class="container-fluid">
+    <h2 style="color:blue;font:bolder">Create</h2>
+    <form method="post" enctype="multipart/form-data">
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label asp-for="@Model.FullName"></label>
+                <input class="form-control" asp-for="@Model.FullName">
+                <span asp-validation-for="@Model.FullName" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="@Model.TeachingStatus"></label>
+                <input class="form-control" asp-for="@Model.TeachingStatus">
+                <span asp-validation-for="@Model.TeachingStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="@Model.Degree"></label>
+                <input class="form-control" asp-for="@Model.Degree">
+                <span asp-validation-for="@Model.Degree" class="text-danger"></span>
+            </div>
+            
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label asp-for="@Model.Experience"></label>
+                <input class="form-control" asp-for="@Model.Experience">
+                <span asp-validation-for="@Model.Experience" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-3">
+                <label asp-for="@Model.Hobby"></label>
+                <input class="form-control" asp-for="@Model.Hobby">
+                <span asp-validation-for="@Model.Hobby" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-3">
+                <label asp-for="@Model.Faculty"></label>
+                <input class="form-control" asp-for="@Model.Faculty">
+                <span asp-validation-for="@Model.Faculty" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-3">
+                <label asp-for="@Model.Email"></label>
+                <input class="form-control" asp-for="@Model.Email">
+                <span asp-validation-for="@Model.Email" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label asp-for="@Model.PhoneNumber"></label>
+                <input class="form-control" asp-for="@Model.PhoneNumber">
+                <span asp-validation-for="@Model.PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-3">
+                <label asp-for="@Model.Skype"></label>
+                <input class="form-control" asp-for="@Model.Skype">
+                <span asp-validation-for="@Model.Skype" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-3">
+                <label asp-for="@Model.FacebookUrl"></label>
+                <input class="form-control" asp-for="@Model.FacebookUrl">
+                <span asp-validation-for="@Model.FacebookUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-3">
+                <label asp-for="@Model.TwitterUrl"></label>
+                <input class="form-control" asp-for="@Model.TwitterUrl">
+                <span asp-validation-for="@Model.TwitterUrl" class="text-danger"></span>
+            </div>
+        </div>
+
+
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label asp-for="@Model.PinterestUrl"></label>
+                <input class="form-control" asp-for="@Model.PinterestUrl">
+                <span asp-validation-for="@Model.PinterestUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-3">
+                <label asp-for="@Model.VimeoUrl"></label>
+                <input class="form-control" asp-for="@Model.VimeoUrl">
+                <span asp-validation-for="@Model.VimeoUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-3">
+                <label asp-for="@Model.InnovationPercentage"></label>
+                <input class="form-control" asp-for="@Model.InnovationPercentage">
+                <span asp-validation-for="@Model.InnovationPercentage" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-3">
+                <label asp-for="@Model.CommunicationPercentage"></label>
+                <input class="form-control" asp-for="@Model.CommunicationPercentage">
+                <span asp-validation-for="@Model.CommunicationPercentage" class="text-danger"></span>
+            </div>
+
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label asp-for="@Model.LanguagePercentage"></label>
+                <input class="form-control" asp-for="@Model.LanguagePercentage">
+                <span asp-validation-for="@Model.LanguagePercentage" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-3">
+                <label asp-for="@Model.TeamLeaderPercentage"></label>
+                <input class="form-control" asp-for="@Model.TeamLeaderPercentage">
+                <span asp-validation-for="@Model.TeamLeaderPercentage" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-3">
+                <label asp-for="@Model.DevelopmentPercentage"></label>
+                <input class="form-control" asp-for="@Model.DevelopmentPercentage">
+                <span asp-validation-for="@Model.DevelopmentPercentage" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-3">
+                <label asp-for="@Model.DesignPercentage"></label>
+                <input class="form-control" asp-for="@Model.DesignPercentage">
+                <span asp-validation-for="@Model.DesignPercentage" class="text-danger"></span>
+            </div>
+
+        </div>
+       
+        <div class="form-row">
+
+            <div class="form-group col-md-12">
+                <label asp-for="@Model.Desc"></label>
+                <textarea class="form-control" asp-for="@Model.Desc" rows="5"></textarea>
+                <span asp-validation-for="@Model.Desc" class="text-danger"></span>
+            </div>
+
+            <div class="form-group col-md-12">
+                <label asp-for="@Model.File"></label>
+                <input class="form-control" asp-for="@Model.File">
+                <span asp-validation-for="@Model.File" class="text-danger"></span>
+            </div>
+        </div>
+
+
+        <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+</div>
+
+@section Scripts{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+    
+}
+
+
+

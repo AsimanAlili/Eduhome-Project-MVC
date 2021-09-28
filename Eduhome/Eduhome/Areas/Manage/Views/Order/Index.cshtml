@@ -1,0 +1,50 @@
+﻿@model List<Order>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+    int counter = 1;
+}
+
+<h1>Orders</h1>
+<div class="container-fluid">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">User</th>
+                <th scope="col">Product</th>
+                <th scope="col">Price</th>
+                <th scope="col">Date</th>
+                <th scope="col">Total</th>
+                <th scope="col">Status</th>
+
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th scope="row">@counter</th>
+                    <td>@item.AppUser.FullName</td>
+                    <td>@item.Course.Name</td>
+                    <td>@item.Price</td>
+                    <td>@item.CreatedAt.AddHours(4).ToString("dd.MM.yyyy")</td>
+                    <td>@item.Price </td>
+                    <td>@(item.Status == OrderStatus.Pending?"pending":(item.Status == OrderStatus.Accepted?"accepted":"rejected"))</td>
+                    <td>
+                        <a asp-action="edit" asp-route-id="@item.Id" class="btn btn-info">Edit</a>
+                    </td>
+                </tr>
+
+                counter++;
+            }
+
+
+        </tbody>
+    </table>
+
+</div>
+
+

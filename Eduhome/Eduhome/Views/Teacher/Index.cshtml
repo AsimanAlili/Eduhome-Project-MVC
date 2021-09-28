@@ -1,0 +1,74 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int maxPageCount = ViewBag.PageCount;
+    int selectedPage = ViewBag.SelectedPage;
+}
+
+<!-- Banner Area Start -->
+<div class="banner-area-wrapper">
+    <div class="banner-area text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="banner-content-wrapper">
+                        <div class="banner-content">
+                            <h2>our teachers</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Banner Area End -->
+<!-- Teacher Start -->
+<div class="teacher-area pt-150 pb-105">
+    <div class="container">
+        <div class="row">
+            @await Component.InvokeAsync("Teacher", new { page = selectedPage })
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="pagination">
+                    <ul class="pagination justify-content-center">
+                        @if (selectedPage > 1)
+                        {
+                            <li class="page-item">
+                                <a class="page-link" style="line-height:25px;" asp-action="index" asp-route-page="1" tabindex="-1">
+                                    <i class="fas fa-angle-double-left"></i>
+                                </a>
+                            </li>
+                            <li class="page-item ">
+                                <a class="page-link" style="line-height:25px;" asp-action="index" asp-route-page="@(selectedPage-1)" tabindex="-1">
+                                    <i class="fas fa-angle-left"></i>
+                                </a>
+                            </li>
+                        }
+
+                        @for (int i = (selectedPage > 1 ? (selectedPage - 1) : 1); i <= (selectedPage < maxPageCount ? selectedPage + 1 : maxPageCount); i++)
+                        {
+                            <li class="page-item"><a class="page-link" style="line-height:25px;" asp-action="index" asp-route-page="@i">@i</a></li>
+                        }
+
+
+                        @if (selectedPage < maxPageCount)
+                        {
+                            <li class="page-item">
+                                <a class="page-link" style="line-height:25px;" asp-action="index" asp-route-page="@(selectedPage+1)" tabindex="-1">
+                                    <i class="fas fa-angle-right"></i>
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" style="line-height:25px;" asp-action="index" asp-route-page="@maxPageCount" tabindex="-1">
+                                    <i class="fas fa-angle-double-right"></i>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Teacher End -->

@@ -1,0 +1,10 @@
+﻿@model List<Event>
+<ul class="list-group">
+
+    @foreach (Event eventt in Model)
+    {
+        <li class="list-group-item justify-content-start " style=" display: flex;">
+            <a href="/Event/Detail/@eventt.Id">@eventt.Title</a>
+        </li>
+    }
+</ul>

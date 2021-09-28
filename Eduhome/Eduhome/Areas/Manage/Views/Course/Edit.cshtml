@@ -1,0 +1,156 @@
+﻿@model Course
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+
+    List<Category> categories = ViewBag.Categories;
+    List<Tag> tags = ViewBag.Tags;
+}
+
+<div class="container-fluid">
+    <h2 style="color:dodgerblue;font:bold">Edit</h2>
+    <form method="post" enctype="multipart/form-data">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label asp-for="@Model.Name"></label>
+                <input class="form-control" asp-for="@Model.Name">
+                <span asp-validation-for="@Model.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="@Model.Slug"></label>
+                <input class="form-control" asp-for="@Model.Slug">
+                <span asp-validation-for="@Model.Slug" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label asp-for="@Model.Start"></label>
+                <input class="form-control" asp-for="@Model.Start">
+                <span asp-validation-for="@Model.Start" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="@Model.Price"></label>
+                <input class="form-control" asp-for="@Model.Price">
+                <span asp-validation-for="@Model.Price" class="text-danger"></span>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label asp-for="@Model.Student"></label>
+                <input class="form-control" asp-for="@Model.Student">
+                <span asp-validation-for="@Model.Student" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label asp-for="@Model.Hours"></label>
+                <input class="form-control" asp-for="@Model.Hours">
+                <span asp-validation-for="@Model.Hours" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="@Model.SkillLevel"></label>
+                <input class="form-control" asp-for="@Model.SkillLevel">
+                <span asp-validation-for="@Model.SkillLevel" class="text-danger"></span>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label asp-for="@Model.Language"></label>
+                <input class="form-control" asp-for="@Model.Language">
+                <span asp-validation-for="@Model.Language" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label asp-for="@Model.Duration"></label>
+                <input class="form-control" asp-for="@Model.Duration">
+                <span asp-validation-for="@Model.Duration" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="@Model.CategoryId">Category</label>
+                <select asp-for="@Model.CategoryId" asp-items="@(new SelectList(categories,"Id","Name"))" class="form-control">
+                </select>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="TagIds">Tags</label>
+                <select name="TagIds" multiple class="form-control">
+                    @foreach (var tag in tags)
+                    {
+                        if (Model.CourseTags.Any(x => x.TagId == tag.Id))
+                        {
+                            <option selected value="@tag.Id">@tag.Name</option>
+                        }
+                        else
+                        {
+                            <option value="@tag.Id">@tag.Name</option>
+                        }
+                    }
+                </select>
+            </div>
+
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label asp-for="@Model.AboutDesc"></label>
+                <textarea class="form-control" asp-for="@Model.AboutDesc"></textarea>
+                <span asp-validation-for="@Model.AboutDesc" rows="3" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="@Model.ApplyDesc"></label>
+                <textarea class="form-control" asp-for="@Model.ApplyDesc"></textarea>
+                <span asp-validation-for="@Model.ApplyDesc" rows="3" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="@Model.CertificationDesc"></label>
+                <textarea class="form-control" asp-for="@Model.CertificationDesc"></textarea>
+                <span asp-validation-for="@Model.CertificationDesc" rows="3" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-row">
+
+            <div class="form-group col-md-12">
+                <label asp-for="@Model.Desc"></label>
+                <textarea class="form-control" asp-for="@Model.Desc" rows="5"></textarea>
+                <span asp-validation-for="@Model.Desc" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group col-md-12">
+                <label asp-for="@Model.File"></label>
+                <input class="form-control" asp-for="@Model.File">
+                <span asp-validation-for="@Model.File" class="text-danger"></span>
+            </div>
+            <div style="margin-top:8px" class="photo-box">
+                <input asp-for="@Model.Photo" hidden value="@Model.Id" />
+                <div>
+                    <img src="~/uploads/courses/@Model.Photo" style="max-width:150px;position:relative" />
+                    <i class="fas fa-times removePhoto" style="color:red;position: absolute;left:380px;"></i>
+                </div>
+
+            </div>
+        </div>
+
+
+        <button type="submit" class="btn btn-primary mt-2">Edit</button>
+    </form>
+</div>
+
+@section Scripts{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(document).on("click", ".removePhoto", function () {
+                $(this).parent().empty()
+            })
+        })
+    </script>
+    <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+    <script>
+        // Replace the <textarea id="editor1"> with a CKEditor 4
+        // instance, using default configuration.
+        CKEDITOR.replace('Desc');
+    </script>
+}
+
+
+

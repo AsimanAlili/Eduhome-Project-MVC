@@ -1,0 +1,41 @@
+﻿@model ContactViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="d-flex justify-content-end mb-2">
+        <a asp-action="create" class="btn btn-primary ">Create</a>
+
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Web Site Url</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>@Model.Contact.Email</td>
+                <td>@Model.Contact.Phone</td>
+                <td>@Model.Contact.WebSiteUrl</td>
+                <td>
+                    <a asp-action="review" asp-route-contactId="@Model.Contact.Id" class="btn btn-success">Review</a>
+                    <a asp-action="edit" asp-route-id="@Model.Contact.Id" class="btn btn-info">Edit</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+

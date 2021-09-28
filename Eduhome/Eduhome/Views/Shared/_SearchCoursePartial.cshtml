@@ -1,0 +1,11 @@
+﻿@model List<Course>
+<ul class="list-group">
+
+    @foreach (var course in Model)
+    {
+        <li class="list-group-item justify-content-start" style=" display: flex;">
+            <a href="/Course/Detail/@course.Id">@course.Name</a>
+        </li>
+    }
+</ul>
+
